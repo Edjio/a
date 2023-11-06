@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<form action="https://www.w3schools.com/php/phptryit.asp?filename=tryphp_compiler" method="post">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Style/ForAll.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Cinzel+Decorative:700" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Заявление</h1>
+
+        <nav>
+            <ul>
+
+                <li><a href="index.html">Главная страница</a></li>
+                <li><a href="New.html">Новости</a></li>
+                <li><a href="O_nas.html">О нас</a></li>
+                <li><a href="Zaivav.html">Заявление</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>
+            Фамилия
+            <input type="text" name="last_name">
+            Имя
+            <input type="text" name="first_name">
+            Отчество
+            <input type="text" name="middle_name">
+        </p>
+        <p>
+            Серия
+            <input type="text" name="series">
+            Номер
+            <input type="text" name="number">
+        </p>
+        <p>
+            <input type="radio" name="gender">Мужской
+            <input type="radio" name="gender">Женский
+        </p>
+        <p>
+            Дата рождения
+            <input type="date" name="birthdate">
+        </p>
+        <p>
+            Согласие на обработку персональных данных
+            <input type="checkbox" name="consent">
+        </p>
+        <p>
+            <input type="button" value="Отправить">
+        </p>
+    </main>
+    <footer>
+        Сайт не является настоящим. Создан исключительно в образовательных целях.
+    </footer>
+
+ <script>
+ function saveData() {
+   var lastName = document.getElementById("last_name").value;
+   var firstName = document.getElementById("first_name").value;
+   var middleName = document.getElementById("middle_name").value;
+   var series = document.getElementById("series").value;
+   var number = document.getElementById("number").value;
+   var gender = document.getElementById("male").checked ? "Мужской" : "Женский";
+   var birthdate = document.getElementById("birthdate").value;
+   var consent = document.getElementById("consent").checked;
+
+   var data = {
+     last_name: lastName,
+     first_name: firstName,
+     middle_name: middleName,
+     series: series,
+     number: number,
+     gender: gender,
+     birthdate: birthdate,
+     consent: consent
+   };
+
+   // Создание ссылки для скачивания файла JSON
+   var jsonData = JSON.stringify(data);
+   var blob = new Blob([jsonData], { type: "application/json" });
+   var url = URL.createObjectURL(blob);
+   var link = document.createElement("a");
+   link.href = url;
+   link.download = "data.json";
+   link.click();
+ }
+ </script>
+</body>
+</html>
